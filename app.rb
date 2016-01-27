@@ -1,20 +1,25 @@
 # Game of Life
 # Dayana / Conny
 
-cells = [] # array
-cell = 0 # boolean dead, alive
+cells = []
+cell = 0
 
+class Board
 
-numberofcells = cells.length
-puts numberofcells
 
 
 10.times do
-    cells.push(rand(2)) 
+    column = []
+    
+    10.times do
+        column.push(rand(2))
+    end
+    
+    cells.push(column)
+end
 end
 
-
-
+Board.new
 puts cells.inspect
 
 
