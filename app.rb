@@ -44,7 +44,7 @@ class Game
     
 
     
-    def self.rule1
+    def self.rule0
         x = 0
         while x < 10 do
             y = 0
@@ -64,9 +64,30 @@ class Game
         x += 1
         end    
     end
-    
-    
-end
+
+
+    def self.rule1
+        # Any live cells with fewer than 2 live neighbors will be dead
+        
+        #This would have 8 neighbors
+        # C: if cell[1][1].neighbors (-1/+1/...) == 0   => cell[1][1] = dead
+        # D: if the sum of cell[1][1].neighbors < 2     => cell[1][1] = dead 
+        
+        
+        # In a grid of 3 * 3
+        # currentRow[4] (cell)
+        #currentRow[3] to the left
+        # currentRow[5] to the right
+        
+        # previousRow[0] diagonal to the left
+        # previousRow[1] above
+        # previousRow[2] diagonal to the right
+        
+        # nextRow[6] diagonal to the left
+        # nextRow[7] below
+        # nextRow[8] diagonal to the right
+        
+    end
     
 
 Board.new
