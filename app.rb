@@ -33,7 +33,6 @@ class Game
     while a < 10 do   
     b = 0
         while b < 10 do
-            #debugger
             print $cells[a][b]
             print " "
             b += 1
@@ -42,14 +41,39 @@ class Game
         a += 1
         end
     end
+    
 
-   
+    
+    def self.rule1
+        x = 0
+        while x < 10 do
+            y = 0
+            while y < 10 do
+                if $cells[x][y] == 1
+                    $cells[x][y] = 0
+                    print $cells[x][y]
+                    print " "
+                else
+                    $cells[x][y] = 1
+                    print $cells[x][y]
+                    print " "            
+                end
+            y += 1
+            end
+        print "\n"       
+        x += 1
+        end    
+    end
+    
+    
 end
     
 
 Board.new
 Game.new
 Game.printBoard
+puts "- " * 10
+Game.rule1
 
 
 
