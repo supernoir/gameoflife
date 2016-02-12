@@ -7,12 +7,11 @@ class Board
     $cells = []
     10.times do
         column = []
-    10.times do
-        column.push(rand(2))
+        10.times do
+            column.push(rand(2))
+        end
+        $cells.push(column)
     end
-    $cells.push(column)
-end
-    #puts @cells.inspect
 end
 
 
@@ -40,7 +39,7 @@ class Game
         print "\n"   
         a += 1
         end
-    end
+  end
     
 
     
@@ -66,12 +65,14 @@ class Game
     end
 
 
+
     def self.rule1
         # Any live cells with fewer than 2 live neighbors will be dead
         
         #This would have 8 neighbors
         # C: if cell[1][1].neighbors (-1/+1/...) == 0   => cell[1][1] = dead
-        # D: if the sum of cell[1][1].neighbors < 2     => cell[1][1] = dead 
+        
+        # D: if the sum of cell[1][1].neighbors <= 2     => cell[1][1] = dead
         
         
         # In a grid of 3 * 3
@@ -88,12 +89,14 @@ class Game
         # nextRow[8] diagonal to the right
         
     end
+end
     
 
 Board.new
 Game.new
 Game.printBoard
 puts "- " * 10
+Game.rule0
 Game.rule1
 
 
