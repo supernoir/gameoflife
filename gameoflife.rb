@@ -7,10 +7,15 @@ class Grid
       @cells = Array.new(width) { Array.new(height, (false)) }
    end
 
+   def randomize(x,y,live)
+      live = [true, false].sample         
+   end
+
    def set_cell(x, y, live = true)
-      live = [true, false].sample
+      randomize(x,y,live)
       @cells[x][y] = live
    end
+
 
    def live?(x, y)
       if @cells[x][y]== true
@@ -39,10 +44,36 @@ class Grid
     if @cells[a][b+1] == true
         count += 1
     end
+    
+# add the rest of the conditions so that all sides are being checked
         
     puts count
     
    end
+
+
+def rule_one
+   # If cell == alive AND count < 2
+   # => cell = dead
+
+end
+
+def rule_two
+   # If cell == alive AND count == 2 || count == 3
+   # => cell = alive
+end
+
+def rule_three
+   # If cell == alive AND count > 3
+   # => cell = dead
+end
+
+def rule_four
+   # If cell == dead AND count == 3
+   # => cell = alive
+end
+
+
 
 
    def print_grid
@@ -50,9 +81,6 @@ class Grid
    end
 
 end
-
-
-
 
 grid = Grid.new(6,6)
 
